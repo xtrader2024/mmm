@@ -1,0 +1,247 @@
+/* Grid Layout - Make it responsive to content */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    /* Set columns based on variable */
+    /* No need to set grid-template-rows explicitly */
+    gap: 20px;
+    /* Space between grid items */
+    width: 100%;
+    /* Full width */
+    margin: 0 auto;
+    /* Centering the grid */
+}
+
+.grid-item {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* Stack child elements vertically */
+    justify-content: space-between;
+    /* Distribute space evenly between child elements */
+}
+
+/* Ensure chart containers take full height and width within grid items */
+.grid-item .chart-container {
+    height: 100%;
+    /* Make charts use all available height */
+    width: 100%;
+    /* Make charts use all available width */
+}
+:root {
+    /* Other variables */
+    --section-background-color: #1c1c1c;
+    /* Example: Dark gray */
+    --alternate-section-background-color: #474747;
+    /* Example: Slightly lighter gray */
+}
+
+/* Adjust button styling for better visibility and interactivity */
+button {
+    background-color: var(--button-color);
+    color: #000;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+}
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        /* Adjust column size for smaller screens */
+    }
+
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    /* Slight lift effect on hover */
+}
+
+
+
+/* Remove Favorite Button */
+.grid-item button.remove-favorite {
+    padding: 10px 20px;
+    background-color: var(--button-color);
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.grid-item button.remove-favorite:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: var(--element-spacing) 0;
+}
+
+.pagination a {
+    padding: 8px 16px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.pagination a:hover {
+    background-color: var(--hover-color);
+}
+
+/* Grid Settings */
+.grid-settings {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: var(--element-spacing);
+}
+
+.grid-settings input[type="number"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--accent-color);
+    background-color: var(--input-background-color);
+    color: var(--text-color);
+}
+
+.grid-settings button {
+    padding: 10px 20px;
+    background-color: var(--button-color);
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.grid-settings button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Variables for easy theme adjustments */
+:root {
+    /* Color Palette */
+    --background-color: #121212;
+    --text-color: #E0E0E0;
+    --accent-color: #BB86FC;
+    --button-color: #03DAC6;
+    --button-hover-color: #018786;
+    --table-header-color: #3700B3;
+    --link-color: #03DAC5;
+    --hover-color: #292929;
+    --gold-color: gold;
+
+    /* Typography */
+    --font-family: 'Roboto', sans-serif;
+
+    /* Spacing */
+    --container-padding: 20px;
+    --element-spacing: 10px;
+    --form-element-flex-basis: 200px;
+    /* Default width of form elements */
+
+    /* Other */
+    --section-background-color: #1c1c1c;
+    --alternate-section-background-color: #474747;
+    --subtitle-size: 1.5em;
+}
+
+/* Form section general styling */
+.form-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--element-spacing);
+    margin-bottom: var(--element-spacing);
+    padding: var(--element-spacing);
+    border-radius: 8px;
+    background-color: var(--section-background-color);
+}
+
+/* Style for the odd sections for differentiation */
+.form-section:nth-of-type(odd) {
+    background-color: var(--alternate-section-background-color);
+}
+
+/* Section titles */
+.form-section h3 {
+    width: 100%;
+    /* Ensure the title takes the full width */
+    font-size: var(--subtitle-size);
+    color: var(--accent-color);
+    margin-bottom: var(--element-spacing);
+}
+
+/* Style each form element to sit side by side */
+.form-section label,
+.form-section input,
+.form-section select,
+.form-section button {
+    flex: 1 1 var(--form-element-flex-basis);
+    margin-bottom: var(--element-spacing);
+}
+
+/* Specific button styles */
+button {
+    background-color: var(--button-color);
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Special styling for the Refresh Charts button */
+.refresh-button {
+    background-color: var(--gold-color);
+    color: #121212;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+/* Interaction styles */
+button:hover,
+.pagination a:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Layout adjustments for small screens */
+@media (max-width: 768px) {
+    .form-section {
+        flex-direction: column;
+    }
+
+    .form-section label,
+    .form-section input,
+    .form-section select,
+    .form-section button {
+        flex-basis: auto;
+        /* Allow elements to take the necessary width */
+    }
+}
+
+.watcher-form-sections {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* Adjusts space between the form sections */
+    gap: 60px;
+    /* Optional: If you want additional space around items */
+}
